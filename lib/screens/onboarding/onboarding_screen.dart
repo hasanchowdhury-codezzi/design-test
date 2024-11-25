@@ -15,65 +15,45 @@ class OnboardingScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Welcome back!',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                "Don't have an account? Sign up",
-                style: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
-                ),
-              ),
-              const SizedBox(height: 32),
-              // Email TextField
-              TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.black.withOpacity(0.2),
-                  hintText: 'Email',
-                  hintStyle: const TextStyle(color: Colors.white54),
-                  prefixIcon: const Icon(Icons.email, color: Colors.white),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
+              Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [
+                      Color(0xFF003044), // Dark blue color for the left
+                      Color(0xFF0A1A32), // Slightly lighter dark color for the right
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                   ),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                style: const TextStyle(color: Colors.white),
-              ),
-              const SizedBox(height: 16),
-              // Password TextField
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.black.withOpacity(0.2),
-                  hintText: 'Password',
-                  hintStyle: const TextStyle(color: Colors.white54),
-                  prefixIcon: const Icon(Icons.lock, color: Colors.white),
-                  suffixIcon: const Icon(Icons.visibility, color: Colors.white),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                style: const TextStyle(color: Colors.white),
-              ),
-              const SizedBox(height: 16),
-              // Forgot password
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Forgot Password',
-                    style: TextStyle(color: Colors.white),
-                  ),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(
+                      Icons.auto_awesome, // Icon similar to the stars
+                      color: Color(0xFF00E3F5), // Cyan blue for the icon
+                      size: 24,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(
+                      'Welcome to PhotoAI',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        foreground: Paint()
+                          ..shader = const LinearGradient(
+                            colors: [
+                              Color(0xFF00E3F5), // Cyan blue
+                              Color(0xFF0058F5), // Royal blue
+                            ],
+                          ).createShader(
+                            const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+                          ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(height: 16),
@@ -86,7 +66,9 @@ class OnboardingScreen extends StatelessWidget {
               ),
               Text(
                 'Transform your photos into stunning AI-generated portraits and artwork in just a few taps.',
+                textAlign: TextAlign.center,
                 style: TextStyle(
+                  fontSize: 12,
                   color: Colors.white.withOpacity(0.7),
                 ),
               ),
