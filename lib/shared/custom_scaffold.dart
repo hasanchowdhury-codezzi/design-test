@@ -32,7 +32,7 @@ class CustomScaffold extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomCenter,
                     colors: [
-                      AppColors.kPrimaryGradientColor,
+                      AppColors.kGradientColor,
                       AppColors.kSecondaryColor,
                     ],
                     stops: [0.5, 1.0],
@@ -54,7 +54,7 @@ class CustomScaffold extends StatelessWidget {
                     begin: Alignment.bottomRight,
                     end: Alignment.bottomCenter,
                     colors: [
-                      AppColors.kPrimaryGradientColor,
+                      AppColors.kGradientColor,
                       AppColors.kSecondaryColor,
                     ],
                     stops: [0.5, 1.0],

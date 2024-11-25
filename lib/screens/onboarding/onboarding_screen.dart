@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:design_test/shared/customElevatedButton.dart';
 import 'package:design_test/shared/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 
@@ -76,53 +77,18 @@ class OnboardingScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
+              const Text('Welcome to the Next Level', style: TextStyle(fontSize: 24)),
+              const Text('of Image Creation', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
               // Login Button
-              ElevatedButton(
+              GradientButton(
                 onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                text: 'Log In',
+              ),
+              Text(
+                'Transform your photos into stunning AI-generated portraits and artwork in just a few taps.',
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.7),
                 ),
-                child: const Text('Log in', style: TextStyle(color: Colors.white)),
-              ),
-              const SizedBox(height: 24),
-              // Continue with text
-              const Row(
-                children: [
-                  Expanded(child: Divider(color: Colors.white54)),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Text(
-                      'Or Continue With',
-                      style: TextStyle(color: Colors.white54),
-                    ),
-                  ),
-                  Expanded(child: Divider(color: Colors.white54)),
-                ],
-              ),
-              const SizedBox(height: 16),
-              // Social Buttons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.g_mobiledata),
-                    iconSize: 40,
-                    color: Colors.white,
-                  ),
-                  const SizedBox(width: 16),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.apple),
-                    iconSize: 40,
-                    color: Colors.white,
-                  ),
-                ],
               ),
             ],
           ),
