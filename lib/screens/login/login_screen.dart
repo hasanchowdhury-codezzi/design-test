@@ -1,4 +1,5 @@
 import 'package:design_test/constants.dart';
+import 'package:design_test/screens/home/home_screen.dart';
 import 'package:design_test/shared/custom_scaffold.dart';
 import 'package:design_test/shared/custom_social_button.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,9 @@ class LoginScreen extends StatelessWidget {
                 Expanded(
                   child: CustomSocialButton(
                     text: 'Log in with Google',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const HomeScreen()));
+                    },
                     imgUrl: 'assets/images/google_icon.svg',
                   ),
                 ),
@@ -79,7 +82,64 @@ class LoginScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const CustomTextFormField(),
+            Form(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Email',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  const CustomTextFormField(
+                    hintText: 'Email',
+                    imgUrl: 'assets/images/email_icon.svg',
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Password',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        'Forget Password',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
+                  CustomTextFormField(
+                    hintText: 'password',
+                    imgUrl: 'assets/images/lock_icon.svg',
+                    suffixIcon: SvgPicture.asset(
+                      'assets/images/lock_icon.svg',
+                      width: 16,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: RichText(
+                text: TextSpan(
+                  text: 'Don\'t have account?', // Default style for this part
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                  children: const [
+                    TextSpan(
+                      text: ' Sign up',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -88,8 +148,15 @@ class LoginScreen extends StatelessWidget {
 }
 
 class CustomTextFormField extends StatelessWidget {
+  final String hintText;
+  final String imgUrl;
+  final Widget? suffixIcon;
+
   const CustomTextFormField({
     super.key,
+    required this.hintText,
+    required this.imgUrl,
+    this.suffixIcon,
   });
 
   @override
@@ -97,18 +164,19 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        hintText: "Email",
+        hintText: hintText,
         floatingLabelBehavior: FloatingLabelBehavior.always,
         hintStyle: const TextStyle(color: Color(0xFF757575)),
         prefixIcon: Padding(
           padding: const EdgeInsets.only(
             left: 24,
-            right: 8,
+            right: 10,
           ), // Add padding around the icon
           child: SvgPicture.asset(
-            'assets/images/email_icon.svg',
+            imgUrl,
           ),
         ),
+        suffix: suffixIcon,
         fillColor: const Color(0xff10161C),
         filled: true,
         border: OutlineInputBorder(

@@ -5,13 +5,14 @@ class CustomSocialButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
   final String imgUrl;
+
   const CustomSocialButton({
     super.key,
     required this.onPressed,
     required this.text,
     required this.imgUrl,
   });
-// /Color(0xff319F43).withOpacity(0.2)
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -20,15 +21,15 @@ class CustomSocialButton extends StatelessWidget {
       splashColor: Colors.transparent,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.transparent, // Transparent background
+          color: Colors.transparent,
           border: Border.all(
-            color: Colors.grey.withOpacity(0.2), // Border color matching the style
+            color: Colors.grey.withOpacity(0.2),
           ),
           borderRadius: BorderRadius.circular(20),
         ),
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         child: Row(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Google logo
             SvgPicture.asset(
@@ -47,7 +48,6 @@ class CustomSocialButton extends StatelessWidget {
             ),
           ],
         ),
-        
       ),
     );
   }
