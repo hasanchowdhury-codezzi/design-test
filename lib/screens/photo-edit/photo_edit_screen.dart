@@ -85,38 +85,35 @@ class PhotoEditScreen extends StatelessWidget {
                     ),
                     const Spacer(),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        const CustomEditorTool(
-                          title: 'Adjust',
-                          imgUrl: 'assets/images/canvas_icon.svg',
+                        const CustomEffectTool(
+                          title: "Trends",
+                          imgUrl: 'assets/images/trends.png',
                         ),
-                        const CustomEditorTool(
-                          title: 'Adjust',
-                          imgUrl: 'assets/images/canvas_icon.svg',
+                        const SizedBox(width: 20),
+                        const CustomEffectTool(
+                          title: "Trends",
+                          imgUrl: 'assets/images/marali.png',
                         ),
-                        const CustomEditorTool(
-                          title: 'Adjust',
-                          imgUrl: 'assets/images/canvas_icon.svg',
+                        const SizedBox(width: 20),
+                        const CustomEffectTool(
+                          title: "Trends",
+                          imgUrl: 'assets/images/korean.png',
                         ),
-                        const CustomEditorTool(
-                          title: 'Adjust',
-                          imgUrl: 'assets/images/canvas_icon.svg',
+                        const SizedBox(width: 20),
+                        const CustomEffectTool(
+                          title: "Trends",
+                          imgUrl: 'assets/images/spring.png',
                         ),
-                        const CustomEditorTool(
-                          title: 'Adjust',
-                          imgUrl: 'assets/images/canvas_icon.svg',
+                        const SizedBox(width: 20),
+                        const CustomEffectTool(
+                          title: "Trends",
+                          imgUrl: 'assets/images/summer.png',
                         ),
-                        const CustomEditorTool(
-                          title: 'Adjust',
-                          imgUrl: 'assets/images/canvas_icon.svg',
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.search,
-                            size: 30,
-                          ),
-                        )
+                        const SizedBox(width: 20),
+                        SvgPicture.asset('assets/images/search_icon.svg'),
                       ],
                     )
                   ],
@@ -124,13 +121,99 @@ class PhotoEditScreen extends StatelessWidget {
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             flex: 1,
-            child: SizedBox(),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                // Expanded(
+                // child: ListView.separated(
+                //     itemBuilder: (contest, index) {
+                //       return Image.asset('assets/images/marali.png');
+                //     },
+                //     separatorBuilder: (context, index) {
+                //       return const SizedBox();
+                //     },
+                //     itemCount: 10),
+                // )
+                Positioned(
+                  left: 10,
+                  child: SizedBox(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (contest, index) {
+                        return Image.asset(
+                          'assets/images/bottom_image2.png',
+                        );
+                      },
+                      separatorBuilder: (context, index) {
+                        return const SizedBox(
+                          width: 3,
+                        );
+                      },
+                      itemCount: 10,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  child: Container(
+                    width: 50, // Diameter of the circle
+                    height: 50, // Diameter of the circle
+                    decoration: const BoxDecoration(
+                      color: Colors.black, // Background color
+                      shape: BoxShape.circle, // Makes the container circular
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black, // Shadow color
+                          blurRadius: 50, // Spread of the shadow
+                          offset: Offset(10, 10), // Shadow position (horizontal, vertical)
+                        ),
+                      ],
+                    ),
+                    child: Center(
+                      child: SvgPicture.asset(
+                        'assets/images/menu_icon.svg',
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),
     ));
+  }
+}
+
+class CustomEffectTool extends StatelessWidget {
+  final String title;
+  final String imgUrl;
+  const CustomEffectTool({
+    super.key,
+    required this.title,
+    required this.imgUrl,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Image.asset(
+          imgUrl,
+        ),
+        const SizedBox(
+          height: 6,
+        ),
+        Text(
+          title,
+          style: const TextStyle(fontSize: 12),
+        )
+      ],
+    );
   }
 }
 

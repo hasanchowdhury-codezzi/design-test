@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:design_test/screens/login/login_screen.dart';
 import 'package:design_test/shared/customElevatedButton.dart';
 import 'package:design_test/shared/custom_scaffold.dart';
+import 'package:design_test/utils/sizer.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -56,7 +57,35 @@ class OnboardingScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(
+              height: 16,
+            ),
+            SizedBox(
+              height: 600,
+              width: Sizer.width(context),
+              child: Stack(
+                children: [
+                  Positioned(
+                    left: -100,
+                    top: 0,
+                    child: Image.asset('assets/images/onboarding_image_left.png'),
+                  ),
+                  Positioned(
+                    top: 100,
+                    left: 60,
+                    child: Image.asset('assets/images/onboarding_image_center.png'),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: -100,
+                    child: Image.asset(
+                      'assets/images/onboarding_image_right.png',
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
             const Text('Welcome to the Next Level', style: TextStyle(fontSize: 24)),
             const Text('of Image Creation', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
             // Login Button
