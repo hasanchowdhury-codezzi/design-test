@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         shape: BoxShape.rectangle, // Use BoxShape.rectangle for rounded rectangle
                         borderRadius: BorderRadius.circular(25), // Adjust for roundness
                         image: const DecorationImage(
-                          image: AssetImage('assets/images/image.png'), // Your image asset
+                          image: AssetImage('assets/images/image.png'),
                           fit: BoxFit.cover, // Adjust how the image fits
                         ),
                       ),
