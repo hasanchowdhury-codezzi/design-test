@@ -1,5 +1,6 @@
 import 'package:design_test/constants.dart';
 import 'package:design_test/screens/home/home_screen.dart';
+import 'package:design_test/shared/customElevatedButton.dart';
 import 'package:design_test/shared/custom_scaffold.dart';
 import 'package:design_test/shared/custom_social_button.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,12 @@ class LoginScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 60),
             SvgPicture.string(logo),
+            const SizedBox(height: 25),
             Row(
               children: [
                 const Text(
@@ -31,14 +34,17 @@ class LoginScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 12),
             Text(
               'Enter Your credentials to access your account',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
+                fontWeight: FontWeight.w300,
                 color: Colors.white.withOpacity(0.6),
               ),
             ),
+            const SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
@@ -50,9 +56,7 @@ class LoginScreen extends StatelessWidget {
                     imgUrl: 'assets/images/google_icon.svg',
                   ),
                 ),
-                const SizedBox(
-                  width: 12,
-                ),
+                const SizedBox(width: 12),
                 Expanded(
                   child: CustomSocialButton(
                     text: 'Log in with Apple',
@@ -82,6 +86,9 @@ class LoginScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(
+              height: 24,
+            ),
             Form(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,10 +97,12 @@ class LoginScreen extends StatelessWidget {
                     'Email',
                     style: TextStyle(fontSize: 12),
                   ),
+                  const SizedBox(height: 12),
                   const CustomTextFormField(
                     hintText: 'Email',
                     imgUrl: 'assets/images/email_icon.svg',
                   ),
+                  const SizedBox(height: 12),
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -107,6 +116,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 12),
                   CustomTextFormField(
                     hintText: 'password',
                     imgUrl: 'assets/images/lock_icon.svg',
@@ -115,8 +125,15 @@ class LoginScreen extends StatelessWidget {
                       width: 16,
                     ),
                   ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  GradientButton(text: 'Log in', onPressed: () {}),
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 32,
             ),
             Align(
               alignment: Alignment.center,

@@ -4,6 +4,7 @@ import 'package:design_test/shared/customElevatedButton.dart';
 import 'package:design_test/shared/custom_scaffold.dart';
 import 'package:design_test/utils/sizer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -11,100 +12,126 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [
-                    Color(0xFF003044), // Dark blue color for the left
-                    Color(0xFF0A1A32), // Slightly lighter dark color for the right
-                  ],
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  const Color(0xFF003044).withOpacity(0.9), // Dark blue color for the left
+                  const Color(0xFF0A1A32).withOpacity(0.4), // Slightly lighter dark color for the right
+                ],
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+              ),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
+            child: const Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  Icons.auto_awesome_outlined, // Icon similar to the stars
+                  color: Color(0xFF00E3F5), // Cyan blue for the icon
+                  size: 24,
                 ),
-                borderRadius: BorderRadius.circular(30),
-              ),
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
-                    Icons.auto_awesome, // Icon similar to the stars
-                    color: Color(0xFF00E3F5), // Cyan blue for the icon
-                    size: 24,
+                SizedBox(width: 10),
+                Text(
+                  'Welcome to PhotoAI',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFF00E3F5),
                   ),
-                  const SizedBox(width: 10),
-                  Text(
-                    'Welcome to PhotoAI',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      foreground: Paint()
-                        ..shader = const LinearGradient(
-                          colors: [
-                            Color(0xFF00E3F5), // Cyan blue
-                            Color(0xFF0058F5), // Royal blue
-                          ],
-                        ).createShader(
-                          const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
-                        ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 32,
+          ),
+          SizedBox(
+            height: 450,
+            width: Sizer.width(context),
+            child: Stack(
+              children: [
+                Positioned(
+                  left: -100,
+                  top: 0,
+                  child: Image.asset(
+                    'assets/images/onboarding_image_left.png',
+                    height: 250,
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  right: -90,
+                  child: Image.asset(
+                    'assets/images/onboarding_image_right.png',
+                    height: 250,
+                  ),
+                ),
+                Positioned.fill(
+                  child: ImageFiltered(
+                    imageFilter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: SvgPicture.asset(
+                      'assets/images/background.svg',
+                      // width: 300,
+                      // height: 300,
+                      // fit: BoxFit.cover,
                     ),
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            SizedBox(
-              height: 600,
-              width: Sizer.width(context),
-              child: Stack(
-                children: [
-                  Positioned(
-                    left: -100,
-                    top: 0,
-                    child: Image.asset('assets/images/onboarding_image_left.png'),
+                ),
+                Positioned(
+                  top: 50,
+                  left: MediaQuery.of(context).size.width / 5,
+                  child: Image.asset(
+                    'assets/images/onboarding_image_center.png',
+                    width: 250,
                   ),
-                  Positioned(
-                    top: 100,
-                    left: 60,
-                    child: Image.asset('assets/images/onboarding_image_center.png'),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    right: -100,
-                    child: Image.asset(
-                      'assets/images/onboarding_image_right.png',
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const Text('Welcome to the Next Level', style: TextStyle(fontSize: 27)),
 
-            const Text('Welcome to the Next Level', style: TextStyle(fontSize: 24)),
-            const Text('of Image Creation', style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
-            // Login Button
-            GradientButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginScreen()));
-              },
-              text: 'Get Started',
+                const Text('of Image Creation', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+                const SizedBox(
+                  height: 32,
+                ),
+                // Login Button
+                GradientButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const LoginScreen()));
+                  },
+                  text: 'Get Started',
+                  trailingIcon: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Text(
+                  'Transform your photos into stunning AI-generated portraits and artwork in just a few taps.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.white.withOpacity(0.7),
+                  ),
+                ),
+              ],
             ),
-            Text(
-              'Transform your photos into stunning AI-generated portraits and artwork in just a few taps.',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.white.withOpacity(0.7),
-              ),
-            ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

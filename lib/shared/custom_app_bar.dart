@@ -26,8 +26,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         SizedBox(
-          height: 48,
+          height: 40,
           child: GradientButton(
+            verticalPadding: 0,
             text: 'Get Pro',
             onPressed: () {},
           ),
