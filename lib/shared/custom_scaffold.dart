@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:design_test/constants.dart';
+import 'package:design_test/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {

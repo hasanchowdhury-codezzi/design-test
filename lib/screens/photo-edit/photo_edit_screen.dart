@@ -8,6 +8,14 @@ class PhotoEditScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> bottomImageUrl = [
+      'assets/images/bottom_image1.png',
+      'assets/images/bottom_image2.png',
+      'assets/images/bottom_image3.png',
+      'assets/images/bottom_image4.png',
+      'assets/images/bottom_image5.png',
+      'assets/images/bottom_image6.png',
+    ];
     return CustomScaffold(
         body: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -45,6 +53,11 @@ class PhotoEditScreen extends StatelessWidget {
                         GradientButton(
                           onPressed: () {},
                           text: 'Export',
+                          verticalPadding: 8,
+                          horizontalPadding: 20,
+                          useGradient: false,
+                          backGroundColor: Colors.white,
+                          textColor: Colors.black,
                         )
                       ],
                     ),
@@ -94,22 +107,22 @@ class PhotoEditScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 20),
                         const CustomEffectTool(
-                          title: "Trends",
+                          title: "Marili",
                           imgUrl: 'assets/images/marali.png',
                         ),
                         const SizedBox(width: 20),
                         const CustomEffectTool(
-                          title: "Trends",
+                          title: "KOREAN",
                           imgUrl: 'assets/images/korean.png',
                         ),
                         const SizedBox(width: 20),
                         const CustomEffectTool(
-                          title: "Trends",
+                          title: "Spring",
                           imgUrl: 'assets/images/spring.png',
                         ),
                         const SizedBox(width: 20),
                         const CustomEffectTool(
-                          title: "Trends",
+                          title: "Summer",
                           imgUrl: 'assets/images/summer.png',
                         ),
                         const SizedBox(width: 20),
@@ -126,16 +139,6 @@ class PhotoEditScreen extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                // Expanded(
-                // child: ListView.separated(
-                //     itemBuilder: (contest, index) {
-                //       return Image.asset('assets/images/marali.png');
-                //     },
-                //     separatorBuilder: (context, index) {
-                //       return const SizedBox();
-                //     },
-                //     itemCount: 10),
-                // )
                 Positioned(
                   left: 10,
                   child: SizedBox(
@@ -145,7 +148,7 @@ class PhotoEditScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (contest, index) {
                         return Image.asset(
-                          'assets/images/bottom_image2.png',
+                          bottomImageUrl[index],
                         );
                       },
                       separatorBuilder: (context, index) {
@@ -153,7 +156,7 @@ class PhotoEditScreen extends StatelessWidget {
                           width: 3,
                         );
                       },
-                      itemCount: 10,
+                      itemCount: bottomImageUrl.length,
                     ),
                   ),
                 ),

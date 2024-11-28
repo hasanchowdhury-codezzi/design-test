@@ -1,4 +1,4 @@
-import 'package:design_test/constants.dart';
+import 'package:design_test/utils/constants.dart';
 import 'package:design_test/screens/home/home_screen.dart';
 import 'package:design_test/shared/customElevatedButton.dart';
 import 'package:design_test/shared/custom_scaffold.dart';
@@ -121,7 +121,7 @@ class LoginScreen extends StatelessWidget {
                     hintText: 'password',
                     imgUrl: 'assets/images/lock_icon.svg',
                     suffixIcon: SvgPicture.asset(
-                      'assets/images/lock_icon.svg',
+                      'assets/images/eye_icon.svg',
                       width: 16,
                     ),
                   ),

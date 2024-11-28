@@ -1,7 +1,9 @@
+import 'package:design_test/screens/home/model/home_model.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCustomCard extends StatelessWidget {
-  const CategoryCustomCard({super.key});
+  final List<CategoryDataModel> categoryData;
+  const CategoryCustomCard({super.key, required this.categoryData});
 
   @override
   Widget build(BuildContext context) {
@@ -10,74 +12,77 @@ class CategoryCustomCard extends StatelessWidget {
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return SizedBox(
-              height: 218,
-              child: Stack(
-                // alignment: Alignment.centerLeft,
-                children: [
-                  Image.asset('assets/images/popular_image1.png'),
-                  Positioned(
-                    bottom: 10,
-                    left: 25,
-                    child: Row(
-                      children: [
-                        InkWell(
-                          onTap: () {},
-                          highlightColor: Colors.transparent,
-                          splashColor: Colors.transparent,
-                          child: Container(
-                            width: 120,
-                            height: 35,
-                            decoration: BoxDecoration(
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.white.withOpacity(0.3),
-                                )
-                              ],
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Colors.black.withOpacity(0.3),
-                                  Colors.black.withOpacity(0.2),
+            return Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: SizedBox(
+                height: 218,
+                child: Stack(
+                  // alignment: Alignment.centerLeft,
+                  children: [
+                    Image.asset(categoryData[index].imgUrl),
+                    Positioned(
+                      bottom: 10,
+                      left: 25,
+                      child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () {},
+                            highlightColor: Colors.transparent,
+                            splashColor: Colors.transparent,
+                            child: Container(
+                              width: 120,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.white.withOpacity(0.3),
+                                  )
+                                ],
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    Colors.black.withOpacity(0.3),
+                                    Colors.black.withOpacity(0.2),
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(75.0),
+                                border: Border.all(
+                                  color: Colors.white.withOpacity(0.1),
+                                  width: 1.5,
+                                ),
+                              ),
+                              alignment: Alignment.center,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(Icons.auto_awesome_outlined, color: Colors.white, size: 20),
+                                  const SizedBox(width: 8),
+                                  Text(
+                                    categoryData[index].cardTitle,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 10,
+                                    ),
+                                  ),
                                 ],
                               ),
-                              borderRadius: BorderRadius.circular(75.0),
-                              border: Border.all(
-                                color: Colors.white.withOpacity(0.1),
-                                width: 1.5,
-                              ),
-                            ),
-                            alignment: Alignment.center,
-                            child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.auto_awesome_outlined, color: Colors.white, size: 20),
-                                SizedBox(width: 8),
-                                Text(
-                                  'Ai Generate',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ],
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },
           separatorBuilder: (context, index) {
             return const SizedBox(
-              width: 10,
+              width: 8,
             );
           },
-          itemCount: 4),
+          itemCount: categoryData.length),
     );
   }
 }

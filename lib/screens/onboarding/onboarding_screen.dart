@@ -28,22 +28,37 @@ class OnboardingScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
             ),
             padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
-            child: const Row(
+            child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(
+                const Icon(
                   Icons.auto_awesome_outlined, // Icon similar to the stars
                   color: Color(0xFF00E3F5), // Cyan blue for the icon
                   size: 24,
                 ),
-                SizedBox(width: 10),
-                Text(
-                  'Welcome to PhotoAI',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF00E3F5),
+                const SizedBox(width: 10),
+                ShaderMask(
+                  shaderCallback: (bounds) => const LinearGradient(
+                    colors: [Color(0xFF00E3F5), Color(0xFF0058F5)], // Gradient colors
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ).createShader(bounds),
+                  child: const Text(
+                    'Welcome to PhotoAI',
+                    style: TextStyle(
+                      fontSize: 12, // Adjust font size as needed
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white, // Base color required for ShaderMask
+                    ),
                   ),
                 ),
+                // Text(
+                //   'Welcome to PhotoAI',
+                //   style: TextStyle(
+                //     fontSize: 14,
+                //     color: Color(0xFF00E3F5),
+                //   ),
+                // ),
               ],
             ),
           ),

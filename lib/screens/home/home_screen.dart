@@ -1,5 +1,6 @@
 import 'package:design_test/screens/home/components/category_custom_card.dart';
 import 'package:design_test/screens/home/components/popular_custom_card.dart';
+import 'package:design_test/screens/home/model/home_model.dart';
 import 'package:design_test/screens/photo-edit/photo_edit_screen.dart';
 import 'package:design_test/shared/customElevatedButton.dart';
 import 'package:design_test/shared/custom_app_bar.dart';
@@ -23,6 +24,17 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  List<PopularDataModel> popularData = [
+    PopularDataModel(imgUrl: 'assets/images/popular_image1.png', cardTitle: 'Ai Generate'),
+    PopularDataModel(imgUrl: 'assets/images/popular_image2.png', cardTitle: '3D Image'),
+    PopularDataModel(imgUrl: 'assets/images/popular_image3.png', cardTitle: 'Ai Generate'),
+  ];
+  List<CategoryDataModel> categoryData = [
+    CategoryDataModel(imgUrl: 'assets/images/category_image1.png', cardTitle: 'Tax to Image'),
+    CategoryDataModel(imgUrl: 'assets/images/category_image2.png', cardTitle: '3D To Image'),
+    CategoryDataModel(imgUrl: 'assets/images/category_image3.png', cardTitle: 'Generative Fill'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -37,17 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
           Expanded(
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
-              child: Container(
-                padding: const EdgeInsets.only(
-                  left: 8.0,
-                  right: 8.0,
-                  top: 0,
-                ),
-                child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 8.0,
+                      right: 8.0,
+                    ),
+                    child: Container(
                       width: double.infinity, // Set the desired width
                       height: 210, // Set the desired height
                       decoration: BoxDecoration(
@@ -79,16 +89,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                     style: TextStyle(fontSize: 14, color: Colors.white.withOpacity(0.7)),
                                   ),
                                   const SizedBox(
-                                    height: 15,
+                                    height: 18,
                                   ),
                                   SizedBox(
-                                    width: 190,
-                                    height: 50,
+                                    width: 170,
+                                    height: 40,
                                     child: GradientButton(
                                       onPressed: () {
                                         Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PhotoEditScreen()));
                                       },
                                       text: 'Explore Features',
+                                      verticalPadding: 0,
+                                      horizontalPadding: 0,
                                     ),
                                   )
                                 ],
@@ -102,30 +114,38 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const Text(
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
                       'Most Popular',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const PopularCustomCard(),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const Text(
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  PopularCustomCard(
+                    productData: popularData,
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
                       'Category',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const CategoryCustomCard(),
-                  ],
-                ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                   CategoryCustomCard(categoryData: categoryData),
+                ],
               ),
             ),
           ),

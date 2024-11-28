@@ -12,6 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
+
       // Removes the shadow
       backgroundColor: Colors.transparent,
       // Adjust color as needed
@@ -26,14 +27,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       actions: [
-        SizedBox(
-          height: 40,
-          child: GradientButton(
-            verticalPadding: 0,
-            leadingIcon: SvgPicture.asset('assets/images/pro_icon.svg'),
-            horizontalPadding: 16,
-            text: 'Get Pro',
-            onPressed: () {},
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: 40,
+            child: GradientButton(
+              verticalPadding: 0,
+              leadingIcon: SvgPicture.asset('assets/images/pro_icon.svg'),
+              horizontalPadding: 16,
+              text: 'Get Pro',
+              onPressed: () {},
+            ),
           ),
         ),
       ],
