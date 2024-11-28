@@ -1,5 +1,6 @@
 import 'package:design_test/shared/customElevatedButton.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -29,6 +30,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           height: 40,
           child: GradientButton(
             verticalPadding: 0,
+            leadingIcon: SvgPicture.asset('assets/images/pro_icon.svg'),
+            horizontalPadding: 16,
             text: 'Get Pro',
             onPressed: () {},
           ),
