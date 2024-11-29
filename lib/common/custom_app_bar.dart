@@ -1,4 +1,4 @@
-import 'package:design_test/shared/customElevatedButton.dart';
+import 'package:design_test/common/customElevatedButton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

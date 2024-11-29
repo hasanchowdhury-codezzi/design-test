@@ -2,10 +2,11 @@ import 'package:design_test/screens/home/components/category_custom_card.dart';
 import 'package:design_test/screens/home/components/popular_custom_card.dart';
 import 'package:design_test/screens/home/model/home_model.dart';
 import 'package:design_test/screens/photo-edit/photo_edit_screen.dart';
-import 'package:design_test/shared/customElevatedButton.dart';
-import 'package:design_test/shared/custom_app_bar.dart';
-import 'package:design_test/shared/custom_bottom_nav_bar.dart';
-import 'package:design_test/shared/custom_scaffold.dart';
+import 'package:design_test/common/customElevatedButton.dart';
+import 'package:design_test/common/custom_app_bar.dart';
+import 'package:design_test/common/custom_bottom_nav_bar.dart';
+import 'package:design_test/common/custom_scaffold.dart';
+import 'package:design_test/utils/extensions.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Column(
         children: [
-          const SizedBox(height: 60), // height of the appbar
+          Dimensions(context).scaleHeight(60).toHeight, // height of the appbar
           Expanded(
             child: SingleChildScrollView(
               physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
@@ -115,25 +116,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: Text(
+                  Dimensions(context).scaleHeight(16).toHeight,
+                  Padding(
+                    padding: EdgeInsets.only(left: Dimensions(context).scaleWidth(8)),
+                    child: const Text(
                       'Most Popular',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
+                  Dimensions(context).scaleHeight(16).toHeight,
                   PopularCustomCard(
                     productData: popularData,
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
+                  Dimensions(context).scaleHeight(16).toHeight,
                   const Padding(
                     padding: EdgeInsets.only(left: 8.0),
                     child: Text(
@@ -141,10 +136,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                   CategoryCustomCard(categoryData: categoryData),
+                  Dimensions(context).scaleHeight(16).toHeight,
+                  CategoryCustomCard(categoryData: categoryData),
                 ],
               ),
             ),

@@ -1,5 +1,9 @@
-import 'package:design_test/shared/customElevatedButton.dart';
-import 'package:design_test/shared/custom_scaffold.dart';
+import 'package:design_test/common/customElevatedButton.dart';
+import 'package:design_test/common/custom_scaffold.dart';
+import 'package:design_test/screens/photo-edit/components/custom_editor_tool.dart';
+import 'package:design_test/screens/photo-edit/components/custom_effect_tool.dart';
+import 'package:design_test/utils/constants.dart';
+import 'package:design_test/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -9,34 +13,32 @@ class PhotoEditScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> bottomImageUrl = [
-      'assets/images/bottom_image1.png',
-      'assets/images/bottom_image2.png',
-      'assets/images/bottom_image3.png',
-      'assets/images/bottom_image4.png',
-      'assets/images/bottom_image5.png',
-      'assets/images/bottom_image6.png',
+      AppImages.bottomImage1,
+      AppImages.bottomImage2,
+      AppImages.bottomImage3,
+      AppImages.bottomImage4,
+      AppImages.bottomImage5,
+      AppImages.bottomImage6,
     ];
     return CustomScaffold(
         body: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: EdgeInsets.symmetric(horizontal: Dimensions(context).scaleWidth(8)),
       child: Column(
         children: [
-          const SizedBox(
-            height: 20,
-          ),
+          Dimensions(context).scaleHeight(20).toHeight,
           Expanded(
             flex: 7,
             child: Container(
               decoration: BoxDecoration(
-                shape: BoxShape.rectangle, // Use BoxShape.rectangle for rounded rectangle
-                borderRadius: BorderRadius.circular(25), // Adjust for roundness
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(25),
                 image: const DecorationImage(
-                  image: AssetImage('assets/images/photo.png'), // Your image asset
-                  fit: BoxFit.cover, // Adjust how the image fits
+                  image: AssetImage(AppImages.photo),
+                  fit: BoxFit.cover,
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(Dimensions(context).scaleHeight(18)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -53,48 +55,47 @@ class PhotoEditScreen extends StatelessWidget {
                         GradientButton(
                           onPressed: () {},
                           text: 'Export',
-                          verticalPadding: 8,
-                          horizontalPadding: 20,
+                          verticalPadding: Dimensions(context).scaleHeight(8),
+                          horizontalPadding: Dimensions(context).scaleWidth(20),
                           useGradient: false,
                           backGroundColor: Colors.white,
                           textColor: Colors.black,
                         )
                       ],
                     ),
-                    const SizedBox(height: 30),
+                    Dimensions(context).scaleHeight(30).toHeight,
                     const CustomEditorTool(
                       title: 'Adjust',
-                      imgUrl: 'assets/images/adjust_icon.svg',
+                      imgUrl: AppImages.adjustIcon,
                     ),
-                    const SizedBox(height: 20),
-                    const CustomEditorTool(
-                      imgUrl: 'assets/images/magic_icon.svg',
-                      imageSize: 34,
+                    Dimensions(context).scaleHeight(20).toHeight,
+                    CustomEditorTool(
+                      imgUrl: AppImages.magicIcon,
+                      imageSize: Dimensions(context).scaleHeight(34),
                     ),
-                    // const SizedBox(height: 20),
-                    const CustomEditorTool(
-                      title: 'Adjust',
-                      imgUrl: 'assets/images/preset_icon.svg',
-                    ),
-                    const SizedBox(height: 20),
                     const CustomEditorTool(
                       title: 'Adjust',
-                      imgUrl: 'assets/images/sticker_icon.svg',
+                      imgUrl: AppImages.presetIcon,
                     ),
-                    const SizedBox(height: 20),
+                    Dimensions(context).scaleHeight(20).toHeight,
                     const CustomEditorTool(
                       title: 'Adjust',
-                      imgUrl: 'assets/images/music_icon.svg',
+                      imgUrl: AppImages.stickerIcon,
                     ),
-                    const SizedBox(height: 20),
+                    Dimensions(context).scaleHeight(20).toHeight,
                     const CustomEditorTool(
                       title: 'Adjust',
-                      imgUrl: 'assets/images/text_icon.svg',
+                      imgUrl: AppImages.musicIcon,
                     ),
-                    const SizedBox(height: 20),
+                    Dimensions(context).scaleHeight(20).toHeight,
                     const CustomEditorTool(
                       title: 'Adjust',
-                      imgUrl: 'assets/images/canvas_icon.svg',
+                      imgUrl: AppImages.textIcon,
+                    ),
+                    Dimensions(context).scaleHeight(20).toHeight,
+                    const CustomEditorTool(
+                      title: 'Adjust',
+                      imgUrl: AppImages.canvasIcon,
                     ),
                     const Spacer(),
                     Row(
@@ -103,29 +104,29 @@ class PhotoEditScreen extends StatelessWidget {
                       children: [
                         const CustomEffectTool(
                           title: "Trends",
-                          imgUrl: 'assets/images/trends.png',
+                          imgUrl: AppImages.trends,
                         ),
-                        const SizedBox(width: 20),
+                        Dimensions(context).scaleWidth(20).toWidth,
                         const CustomEffectTool(
                           title: "Marili",
-                          imgUrl: 'assets/images/marali.png',
+                          imgUrl: AppImages.marali,
                         ),
-                        const SizedBox(width: 20),
+                        Dimensions(context).scaleWidth(20).toWidth,
                         const CustomEffectTool(
                           title: "KOREAN",
-                          imgUrl: 'assets/images/korean.png',
+                          imgUrl: AppImages.korean,
                         ),
-                        const SizedBox(width: 20),
+                        Dimensions(context).scaleWidth(20).toWidth,
                         const CustomEffectTool(
                           title: "Spring",
-                          imgUrl: 'assets/images/spring.png',
+                          imgUrl: AppImages.spring,
                         ),
-                        const SizedBox(width: 20),
+                        Dimensions(context).scaleWidth(20).toWidth,
                         const CustomEffectTool(
                           title: "Summer",
-                          imgUrl: 'assets/images/summer.png',
+                          imgUrl: AppImages.summer,
                         ),
-                        const SizedBox(width: 20),
+                        Dimensions(context).scaleWidth(20).toWidth,
                         SvgPicture.asset('assets/images/search_icon.svg'),
                       ],
                     )
@@ -140,9 +141,9 @@ class PhotoEditScreen extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Positioned(
-                  left: 10,
+                  left: Dimensions(context).scaleWidth(10),
                   child: SizedBox(
-                    height: 60,
+                    height: Dimensions(context).scaleHeight(60),
                     width: MediaQuery.of(context).size.width,
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
@@ -163,22 +164,22 @@ class PhotoEditScreen extends StatelessWidget {
                 Positioned(
                   right: 0,
                   child: Container(
-                    width: 50, // Diameter of the circle
-                    height: 50, // Diameter of the circle
+                    width: Dimensions(context).scaleWidth(50),
+                    height: Dimensions(context).scaleHeight(50),
                     decoration: const BoxDecoration(
-                      color: Colors.black, // Background color
-                      shape: BoxShape.circle, // Makes the container circular
+                      color: Colors.black,
+                      shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black, // Shadow color
-                          blurRadius: 50, // Spread of the shadow
-                          offset: Offset(10, 10), // Shadow position (horizontal, vertical)
+                          color: Colors.black,
+                          blurRadius: 50,
+                          offset: Offset(10, 10),
                         ),
                       ],
                     ),
                     child: Center(
                       child: SvgPicture.asset(
-                        'assets/images/menu_icon.svg',
+                        AppImages.menuIcon,
                       ),
                     ),
                   ),
@@ -189,62 +190,5 @@ class PhotoEditScreen extends StatelessWidget {
         ],
       ),
     ));
-  }
-}
-
-class CustomEffectTool extends StatelessWidget {
-  final String title;
-  final String imgUrl;
-  const CustomEffectTool({
-    super.key,
-    required this.title,
-    required this.imgUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Image.asset(
-          imgUrl,
-        ),
-        const SizedBox(
-          height: 6,
-        ),
-        Text(
-          title,
-          style: const TextStyle(fontSize: 12),
-        )
-      ],
-    );
-  }
-}
-
-class CustomEditorTool extends StatelessWidget {
-  final String? title;
-  final String imgUrl;
-  final double? imageSize;
-  const CustomEditorTool({
-    super.key,
-    this.title,
-    required this.imgUrl,
-    this.imageSize,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SvgPicture.asset(
-          imgUrl,
-          width: imageSize ?? 20,
-        ),
-        const SizedBox(height: 4),
-        Text(
-          title ?? '',
-          style: const TextStyle(fontSize: 12),
-        ),
-      ],
-    );
   }
 }
