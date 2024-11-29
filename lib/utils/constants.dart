@@ -48,4 +48,12 @@ class AppImages {
   static const summer = '$commonUrl/summer.png';
   static const searchIcon = '$commonUrl/search_icon.svg';
   static const menuIcon = '$commonUrl/menu_icon.svg';
+
+  //Home Screen Images
+  static const popularImage1 = '$commonUrl/popular_image1.png';
+  static const popularImage2 = '$commonUrl/popular_image2.png';
+  static const popularImage3 = '$commonUrl/popular_image3.png';
+  static const categoryImage1 = '$commonUrl/category_image1.png';
+  static const categoryImage2 = '$commonUrl/category_image2.png';
+  static const categoryImage3 = '$commonUrl/category_image3.png';
 }

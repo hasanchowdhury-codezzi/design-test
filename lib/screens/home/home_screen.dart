@@ -6,6 +6,7 @@ import 'package:design_test/common/customElevatedButton.dart';
 import 'package:design_test/common/custom_app_bar.dart';
 import 'package:design_test/common/custom_bottom_nav_bar.dart';
 import 'package:design_test/common/custom_scaffold.dart';
+import 'package:design_test/utils/constants.dart';
 import 'package:design_test/utils/extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -26,14 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<PopularDataModel> popularData = [
-    PopularDataModel(imgUrl: 'assets/images/popular_image1.png', cardTitle: 'Ai Generate'),
-    PopularDataModel(imgUrl: 'assets/images/popular_image2.png', cardTitle: '3D Image'),
-    PopularDataModel(imgUrl: 'assets/images/popular_image3.png', cardTitle: 'Ai Generate'),
+    PopularDataModel(imgUrl: AppImages.popularImage1, cardTitle: 'Ai Generate'),
+    PopularDataModel(imgUrl: AppImages.popularImage2, cardTitle: '3D Image'),
+    PopularDataModel(imgUrl: AppImages.popularImage3, cardTitle: 'Ai Generate'),
   ];
   List<CategoryDataModel> categoryData = [
-    CategoryDataModel(imgUrl: 'assets/images/category_image1.png', cardTitle: 'Tax to Image'),
-    CategoryDataModel(imgUrl: 'assets/images/category_image2.png', cardTitle: '3D To Image'),
-    CategoryDataModel(imgUrl: 'assets/images/category_image3.png', cardTitle: 'Generative Fill'),
+    CategoryDataModel(imgUrl: AppImages.categoryImage1, cardTitle: 'Tax to Image'),
+    CategoryDataModel(imgUrl: AppImages.categoryImage2, cardTitle: '3D To Image'),
+    CategoryDataModel(imgUrl: AppImages.categoryImage3, cardTitle: 'Generative Fill'),
   ];
 
   @override
